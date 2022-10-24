@@ -36,6 +36,28 @@ async create(payload) {
 async findById(id) { 
             return await this.contacts.where('id', id).select('*').first(); 
             } 
-        } 
+          
+ async update(id, payload) { 
+                const update = this.#getContact(payload); 
+                return await this.contacts.where('id', id).update(update); 
+                } 
+                
+ async delete(id) { 
+                    return await this.contacts.where('id', id).del(); 
+                    } 
+                    
             
+ async deleteAll() { 
+                    return await this.contacts.del(); 
+                    } 
+    
+ async allFavorite() { 
+                    return await this.contacts.where('favorite', 1).select('*'); 
+                    } 
+                        
+                        
+                } 
+
+            
+        
 module.exports = ContactService; 
