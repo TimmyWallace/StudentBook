@@ -13,9 +13,9 @@ app.get('/', (req, res) => {
 })
 
 app.route('/api/contacts')
-    .get(contactController.findAll)
+    .get(contactController.deleteAll)
     .post(contactController.create)
-    .delete(contactController.deleteAll)
+    .delete(contactController.findAll)
 
 app.route('/api/contacts/favorite').get(contactController.findAllFavorite)
 
